@@ -1,0 +1,43 @@
+h1 {
+    color: rgb(166, 247, 217);
+}
+
+h6 {
+    color: rgb(165, 91, 159);
+}
+
+
+
+h2 {
+    color: rgb(199, 204, 133);
+}
+
+.container {
+    padding-top: 5px;
+    background-color: #062430;
+}
+
+body {
+    background-color: #4d4d55;
+    padding-top: 75px;
+}
+
+footer {
+    background-color: #4d4d55;
+    padding: 35px;
+    text-align: center;    
+}
+
+.contenuto {
+    min-height: 95%;
+    padding-bottom: 80px;
+    color: white;
+}
+
+.header{  
+    padding-top: 6px;
+}
+section {
+    color: black;
+}
+
