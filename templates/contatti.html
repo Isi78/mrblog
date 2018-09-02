@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+<title>{% block head_title %}{{ block.super }} | Contatti{% endblock head_title %}</title>
+
+{% block content %}
+  
+ 
+<!--
+ <center><img src="{% static 'posts/img/paperino.jpg' %}"/>
+ </center>
+-->
+<center style="padding-top: 60px";><img class="img-responsive" src="{% static 'img/paperino.png' %}"/>
+ </center>
+ <h6>Mail:</h6>
+ <p>easy@easy</p>
+
+{% endblock content %}
+
+  
+ 
+ 

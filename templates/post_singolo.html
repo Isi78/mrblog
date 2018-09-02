@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+<title>{% block head_title %}{{ block.super }} | {{ object.titolo }}{% endblock head_title %}</title>
+
+{% block content %}
+    
+    <!--
+	<center><img src="{% static 'img/PSI.jpg' %}"/>
+ 	</center>
+    -->
+    
+    <h1 style="padding-top: 65px">{{ object.titolo }}</h1>
+    <h6 style="padding-top: 25px">{{ object.data }}</h6>
+    <p style="padding-top: 55px;">{{ object.contenuto | safe | linebreaks }}</p>
+
+    <!--
+    <form method="COMMENT" class="comment-form">{% csrf_token %}
+      {{ form.as_p }}
+    </form>
+    -->
+
+    <p>Commenti: {{ post.comments.count }}</p>
+
+    
+      
+      {% for comment in post.comments.all %}
+              
+        <div class="comment" style="border: 3px solid; background-color: rgb(165, 159, 202); color: rgb(0, 2, 10);">
+          <div class="date" style="color:rgb(67, 76, 83); font-size: 10px">{{ comment.data }}</div>
+          <strong style="color: rgb(36, 8, 102); font-size: 18px">{{ comment.titolo }}</strong>
+          <hr>        
+          <p>{{ comment.contenuto | linebreaks }}</p>
+          
+        
+        </div>
+        <hr>
+          {% empty %}
+            <p>No comments here yet :(</p>
+      
+      {% endfor %}
+  <!--      
+<a class="btn btn-default" style="color: red" href="{% url 'add_comment_to_post' pk=post.pk %}">Commenta Qui!</a>    
+  -->    
+<a class="btn btn-default" style="color: red" href="{% url 'add_comment_to_post' pk=post.pk %}">Commenta Qui!</a>
+
+
+
+
+    
+        
+    
+ {% endblock content %}
+
+ <!--
+ <div class="date" style="color:rgb(67, 76, 83); font-size: 10px">{{ comment.data }}</div>
+-->

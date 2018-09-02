@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <!--
+	<center><img src="{% static 'img/phi.png' %}"/>
+   </center>
+  -->
+
+
+    {% for object in object_list %}
+
+      <a href="{{ object.get_absolute_url }}"><h2>{{ object.titolo }}</h2></a>
+      <h6>{{ object.data }}</h6>
+      <p>{{ object.contenuto | safe | linebreaks | truncatewords_html:40 }}</p>
+      <!--
+      <p><a href="/commenti">Commenti</a></p>
+      -->
+      
+    {% endfor %}
+
+    
+
+         
+
+      
+        
+  <div>
+
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm" style="padding-left: 250px; padding-top: 35px;">
+          <li class="page-item disabled">
+              {% if page_obj.has_previous %}
+            <button type="button" class="btn btn-outline-success"><a href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a></button></li>
+              {% endif %}
+              <li class="page-item disabled">
+              {% if page_obj.has_next %}  
+              <button type="button" class="btn btn-outline-success"><a href="?page={{ page_obj.next_page_number }}" tabindex="-1">Next</a></button></li>
+              {% endif %}
+          
+        </ul>
+    </nav>  
+
+  </div>
+  
+{% endblock content %}
+
